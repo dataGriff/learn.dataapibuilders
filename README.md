@@ -1,6 +1,7 @@
 # learn.dataapibuilders
 
 - [learn](https://learn.microsoft.com/en-us/azure/data-api-builder/quickstart-sql)
+- [video](https://www.youtube.com/watch?v=sSkkSx2nlo4)
 
 ```bash
 dotnet tool list --global
