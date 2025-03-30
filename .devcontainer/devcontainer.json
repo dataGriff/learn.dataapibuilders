@@ -1,0 +1,15 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-dotnettools.csdevkit",
+                "ms-mssql.mssql"
+            ]
+        }
+    },
+    "postCreateCommand": "dotnet tool install --global Microsoft.DataApiBuilder --prerelease"
+}
