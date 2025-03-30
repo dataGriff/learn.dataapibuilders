@@ -1,0 +1,62 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v1.4.26/dab.draft.schema.json",
+  "data-source": {
+    "database-type": "mssql",
+    "connection-string": "Server=localhost,1433;User Id=sa;Database=bookshelf;Password=5up3r53cr3t!;TrustServerCertificate=True;Encrypt=True;",
+    "options": {
+      "set-session-context": false
+    }
+  },
+  "runtime": {
+    "rest": {
+      "enabled": true,
+      "path": "/api",
+      "request-body-strict": true
+    },
+    "graphql": {
+      "enabled": true,
+      "path": "/graphql",
+      "allow-introspection": true
+    },
+    "host": {
+      "cors": {
+        "origins": [],
+        "allow-credentials": false
+      },
+      "authentication": {
+        "provider": "StaticWebApps"
+      },
+      "mode": "development"
+    }
+  },
+  "entities": {
+    "Author": {
+      "source": {
+        "object": "proc_authors",
+        "type": "stored-procedure",
+        "parameters": {
+          "id": "number"
+        }
+      },
+      // "graphql": {
+      //   "enabled": true,
+      //   "type": {
+      //     "singular": "Author",
+      //     "plural": "Authors"
+      //   }
+      // },
+      "rest": {
+        "path": "/authors",
+        "methods": [ "get" ]
+      },
+      "permissions": [
+        {
+          "role": "anonymous",
+          "actions": [
+              "execute"
+          ]
+        }
+      ]
+    }
+  }
+}
